@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"/>
+    <EditText
+        android:id="@+id/LOGIN_EMAIL_ENTER"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="IITR Email Address"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/LOGIN_PASSWORD_ENTER"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSize1"
+        android:text="Enter as a... "
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/LAUNDRYMAN_ENTER_BUTTON"
+        android:layout_marginTop="10dp"
+        android:layout_width="@dimen/login_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Laundryman"
+
+        />
+    <Button
+        android:id="@+id/STUDENT_ENTER_BUTTON"
+        android:layout_width="@dimen/login_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Student"
+        />
+
+    <TextView
+        android:id="@+id/SIGN_UP_TEXT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="@dimen/textSize1"
+        android:gravity="center_horizontal"
+        android:text="@string/action_sign_up"
+            />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/PROGRESS_CIRCULAR_MAIN"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "607285157082",
+    "firebase_url": "https://appone-dd229.firebaseio.com",
+    "project_id": "appone-dd229",
+    "storage_bucket": "appone-dd229.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607285157082:android:21b7f31e3eb380463c99e3",
+        "android_client_info": {
+          "package_name": "com.example.appone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607285157082-bmm1upsqsj5uq1v0b0d1utckjlb4vtve.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appone",
+            "certificate_hash": "9a4eb68717ea34d389ff96c6e45c51eb78cbd70f"
+          }
+        },
+        {
+          "client_id": "607285157082-9t8626kjqntv5if330cdesuhe1m591s7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPm7ZhwIzrfwAa7-9nfS2jM2qZ0AnnT5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "607285157082-9t8626kjqntv5if330cdesuhe1m591s7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
