@@ -12,24 +12,20 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfileSetUpActivity extends AppCompatActivity {
 
 
     EditText eName, eRoom;
     Button bUpdate;
-    DatabaseReference mDatabase;
+    FirebaseFirestore ff;
     FirebaseAuth mAuth;
 
     @Override
@@ -39,7 +35,7 @@ public class ProfileSetUpActivity extends AppCompatActivity {
         eName = findViewById(R.id.NAMEINPUT);
         eRoom = findViewById(R.id.ROOMNUMBER);
         bUpdate = findViewById(R.id.UPDATEINFO);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("students");
+        ff = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
         bUpdate.setOnClickListener(new View.OnClickListener() {
@@ -69,18 +65,17 @@ public class ProfileSetUpActivity extends AppCompatActivity {
     }
 
     void updateInfo(String name, String room){
-        HashMap<String, String> h = new HashMap<String, String>();
-        String key = "";
-        h.put("Name",name);
-        h.put("Room",room);
-        key = mDatabase.push().getKey();
-        mDatabase.child(key).setValue(h).addOnCompleteListener(new OnCompleteListener<Void>() {   //ERROR IF STUDENT DOES MULTIPLE TIMES
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(ProfileSetUpActivity.this, "Details updated", Toast.LENGTH_LONG );
-                }
-            }
+        String key;
+
+        StudentUser sUser = new StudentUser(name, room);
+
+        DocumentReference dRef = ff.collection("students").document();
+        key = dRef.getId();
+        dRef.set(sUser).addOnSuccessListener(new OnSuccessListener<Void>() {
+           @Override
+           public void onSuccess(Void aVoid) {
+               Toast.makeText(ProfileSetUpActivity.this, "Information updated", Toast.LENGTH_LONG);
+           }
         });
 
         FirebaseUser user = mAuth.getCurrentUser();
@@ -91,7 +86,7 @@ public class ProfileSetUpActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(ProfileSetUpActivity.this, "Display name updated", Toast.LENGTH_LONG );
+                       Toast.makeText(ProfileSetUpActivity.this, "Display name updated", Toast.LENGTH_LONG );
                         startActivity(new Intent(ProfileSetUpActivity.this, StudentMainActivity.class));
                     }
                 }

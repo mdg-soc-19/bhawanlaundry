@@ -32,14 +32,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progBar;
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
-        buttonL = findViewById(R.id.LAUNDRYMAN_ENTER_BUTTON);
-        buttonS = findViewById(R.id.STUDENT_ENTER_BUTTON);
-        emailView = findViewById(R.id.LOGIN_EMAIL_ENTER);
-        passwordView = findViewById(R.id.LOGIN_PASSWORD_ENTER);
-        signUp = findViewById(R.id.SIGN_UP_TEXT);
-        progBar = findViewById(R.id.PROGRESS_CIRCULAR_MAIN);
+
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -51,7 +44,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-       // mAuth.addAuthStateListener(mAuthListener);
+        mAuth.addAuthStateListener(mAuthListener);
+
+        setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
+        buttonL = findViewById(R.id.LAUNDRYMAN_ENTER_BUTTON);
+        buttonS = findViewById(R.id.STUDENT_ENTER_BUTTON);
+        emailView = findViewById(R.id.LOGIN_EMAIL_ENTER);
+        passwordView = findViewById(R.id.LOGIN_PASSWORD_ENTER);
+        signUp = findViewById(R.id.SIGN_UP_TEXT);
+        progBar = findViewById(R.id.PROGRESS_CIRCULAR_MAIN);
+
+
+
+
 
         buttonS.setOnClickListener(new View.OnClickListener() {
             @Override
