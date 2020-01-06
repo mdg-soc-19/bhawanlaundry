@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "99276061247",
+    "firebase_url": "https://bhawanlaundry.firebaseio.com",
+    "project_id": "bhawanlaundry",
+    "storage_bucket": "bhawanlaundry.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99276061247:android:a5d24368cdef0ad083568a",
+        "android_client_info": {
+          "package_name": "com.example.android.bhawanlaundry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99276061247-a5f6ooj73lvns75qqnp93c67ij4vrsnm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.bhawanlaundry",
+            "certificate_hash": "798c40ec03f49f6e9f3850a5f95d95639f1f37ed"
+          }
+        },
+        {
+          "client_id": "99276061247-0c9pmc1vg6aq399tbnebe6d501j25ppk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6YxrGhuvvt5sOk95WQzFaifdi8Ptv-wQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99276061247-0c9pmc1vg6aq399tbnebe6d501j25ppk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
