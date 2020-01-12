@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools = "http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/REQUESTS_MENU_ITEM"
+            android:title="Requests"
+            android:icon="@drawable/ic_requests_24dp"/>
+
+        <item android:id="@+id/QUEUE_MENU_ITEM"
+             android:title="Queue"
+            android:icon="@drawable/ic_queue_24dp"/>
+
+        <item android:id="@+id/FINISHED_MENU_ITEM"
+            android:title="Finished"
+            android:icon="@drawable/ic_finished_black_24dp"/>
+
+
+    </group>
+
+
+</menu>

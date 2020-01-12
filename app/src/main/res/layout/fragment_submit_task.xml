@@ -89,6 +89,14 @@
         android:layout_height="wrap_content"
         android:text="SUBMIT"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/PROGRESS_CIRCULAR_SUBMIT_FRAGMENT"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

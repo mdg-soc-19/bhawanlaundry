@@ -90,6 +90,13 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        buttonL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LOGIN_CI_INTERFACE.openLaundrymanRoomSelectFragment();
+            }
+        });
+
         signUpText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,6 +147,7 @@ public class LoginFragment extends Fragment {
     public interface loginCI{
           void openSignUp();
           void openRoomSelectFragment();
+          void openLaundrymanRoomSelectFragment();
     }
 
     @Override

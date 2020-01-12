@@ -11,41 +11,42 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:layout_weight="5">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:orientation="vertical"
             android:layout_alignParentTop="true"
-            >
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
-                android:textSize="@dimen/textSize1"
-                android:text="Enter your first name: "/>
+                android:text="Enter your first name: "
+                android:textSize="@dimen/textSize1" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
                 android:id="@+id/NAME_INPUT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="First name"
-                />
+                android:inputType="text" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
-                android:textSize="@dimen/textSize1"
-                android:text="Enter Room Number: "/>
+                android:text="Enter Room Number: "
+                android:textSize="@dimen/textSize1" />
+
             <EditText
+                android:id="@+id/ROOM_NUMBER_INPUT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:id="@+id/ROOM_NUMBER_INPUT"
                 android:hint="Room Number"
+                android:inputType="text"
 
                 />
 
@@ -54,17 +55,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="130dp"
-                android:layout_marginRight="130dp"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
-                android:text="UPDATE"/>
+                android:layout_marginRight="130dp"
+                android:text="UPDATE" />
 
         </LinearLayout>
 
         <ProgressBar
-            android:visibility="gone"
             android:id="@+id/PROGRESS_CIRCULAR_PROFILE_SET_UP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
     </RelativeLayout>
 </LinearLayout>
