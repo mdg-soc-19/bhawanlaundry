@@ -24,13 +24,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/STUDENT_NAME_REQUESTS"
+                android:id="@+id/STUDENT_NAME_QUEUE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shreyas Dodamani" />
 
             <TextView
-                android:id="@+id/STUDENT_ROOM_REQUESTS"
+                android:id="@+id/STUDENT_ROOM_QUEUE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="AF-028" />
@@ -41,7 +41,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/NUMBER_OF_CLOTHES_REQUESTS"
+                    android:id="@+id/NUMBER_OF_CLOTHES_QUEUE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="69" />
@@ -58,7 +58,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/BUCKET_COLOUR_REQUESTS"
+                    android:id="@+id/BUCKET_COLOUR_QUEUE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rainbow" />
@@ -70,23 +70,36 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/REQUEST_WASH_BUTTON"
+            <ImageButton
+                android:id="@+id/QUEUE_ACCEPT_BUTTON"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:text="WASH" />
+                android:src="@drawable/ic_action_name_check_mark_requests"
+                />
 
+            <ImageButton
+                android:id="@+id/QUEUE_REJECT_BUTTON"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_action_name_cross_requests" />
 
-        </LinearLayout>
+        </LinearLayout>-->
 
+        <ImageButton
+            android:id="@+id/QUEUE_ACCEPT_BUTTON"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_name_check_mark_requests" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

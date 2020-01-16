@@ -3,59 +3,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="30dp"
     android:layout_marginLeft="10dp"
+    android:layout_marginTop="30dp"
     android:layout_marginRight="10dp"
+    android:orientation="vertical"
     tools:context=".LaundrymanRoomSelect">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/HELLO_LAUNDRYMAN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello "
+            android:textSize="@dimen/textSizeHeading" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Laundy rooms:"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/login_button_height"
-        android:textSize="@dimen/textSizeHeading"/>
+        android:text="Laundry rooms:"
+        android:textSize="@dimen/textSizeHeading" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Ax Block: "
             android:gravity="center_vertical"
-            android:textSize="@dimen/textSize1"/>
+            android:text="Ax Block: "
+            android:textSize="@dimen/textSize1" />
+
         <Button
             android:id="@+id/LAUNDRYMAN_ENTER_Ax_BUTTON"
-            android:layout_marginLeft="@dimen/textSizeHeading"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="ENTER"/>
+            android:layout_marginLeft="@dimen/textSizeHeading"
+            android:text="ENTER" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="  B Block: "
             android:gravity="center_vertical"
-            android:textSize="@dimen/textSize1"/>
+            android:text="  B Block: "
+            android:textSize="@dimen/textSize1" />
+
         <Button
             android:id="@+id/LAUNDRYMAN_ENTER_B_BUTTON"
-            android:layout_marginLeft="@dimen/textSizeHeading"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="ENTER"/>
+            android:layout_marginLeft="@dimen/textSizeHeading"
+            android:text="ENTER" />
 
     </LinearLayout>
 
+
+    <Button
+        android:id="@+id/SIGN_OUT_BUTTON_LAUNDRYMAN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"
+        android:text="SIGN OUT" />
+
+    <ProgressBar
+        android:id="@+id/PROGRESS_CIRCULAR_LAUNDRYMAN_ROOM_SELECT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="300dp"
+        android:visibility="gone" />
 
 </LinearLayout>

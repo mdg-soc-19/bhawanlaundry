@@ -80,11 +80,25 @@ public class SubmitTaskFragment extends Fragment {
                 bucketColour = bucketColourInput.getText().toString().trim();
                 numberOfClothes = numberOfClothesInput.getText().toString().trim();
 
+                if(bucketColour.isEmpty()){
+                    bucketColourInput.setError("Field cannot be empty");
+                    bucketColourInput.requestFocus();
+                    return;
+                }
+
+                if(numberOfClothes.isEmpty()){
+                    bucketColourInput.setError("Field cannot be empty");
+                    bucketColourInput.requestFocus();
+                    return;
+                }
+
                 if(Integer.parseInt(numberOfClothes)>10){
                     numberOfClothesInput.setError("Number of clothes cannot exceed 10");
                     numberOfClothesInput.requestFocus();
                     return;
                 }
+
+
 
                 sendRequest(numberOfClothes, bucketColour);
 

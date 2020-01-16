@@ -34,30 +34,14 @@
             android:hint="Password"
             android:inputType="textPassword"/>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textSize1"
-            android:text="Enter as a... "
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:gravity="center_horizontal"/>
 
         <Button
-            android:id="@+id/LAUNDRYMAN_ENTER_BUTTON"
-            android:layout_marginTop="10dp"
+            android:id="@+id/LOGIN_BUTTON"
             android:layout_width="@dimen/login_button_width"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_gravity="center_horizontal"
-            android:text="Laundryman"
-
-            />
-        <Button
-            android:id="@+id/STUDENT_ENTER_BUTTON"
-            android:layout_width="@dimen/login_button_width"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Student"
+            android:text="LOG IN"
             />
 
         <TextView

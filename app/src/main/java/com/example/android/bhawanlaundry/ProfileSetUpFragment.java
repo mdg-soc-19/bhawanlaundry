@@ -15,15 +15,18 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
@@ -35,7 +38,7 @@ public class ProfileSetUpFragment extends Fragment {
     FirebaseFirestore ff;
     FirebaseAuth mAuth;
     profileSetUpCI PROFILE_SET_UP_INTERFACE;
-
+    ProgressBar progressBar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class ProfileSetUpFragment extends Fragment {
         nameInput = view.findViewById(R.id.NAME_INPUT);
         roomInput = view.findViewById(R.id.ROOM_NUMBER_INPUT);
         updateButton = view.findViewById(R.id.UPDATE_INFO_BUTTON);
+        progressBar = view.findViewById(R.id.PROGRESS_CIRCULAR_PROFILE_SET_UP);
 
         ff = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -91,7 +95,7 @@ public class ProfileSetUpFragment extends Fragment {
             }
         });
 
-        FirebaseUser user = mAuth.getCurrentUser();
+        final FirebaseUser user = mAuth.getCurrentUser();
 
         if(user != null){
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
@@ -101,7 +105,32 @@ public class ProfileSetUpFragment extends Fragment {
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
                        // Toast.makeText(getContext(), "Display name updated", Toast.LENGTH_LONG );
-                        PROFILE_SET_UP_INTERFACE.openRoomSelectFragment();
+                        DocumentReference dRef = ff.collection("students").document(user.getDisplayName());
+                        progressBar.setVisibility(View.VISIBLE);
+                        dRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                progressBar.setVisibility(View.GONE);
+                                StudentUser studentUser = documentSnapshot.toObject(StudentUser.class);
+
+                                String room = studentUser.getRoom();
+
+                                if(room.trim().equals("laundryman")){
+                                    PROFILE_SET_UP_INTERFACE.openLaundrymanRoomSelectFragment();
+                                } else {
+                                    PROFILE_SET_UP_INTERFACE.openRoomSelectFragment();
+                                }
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                progressBar.setVisibility(View.GONE);
+                                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
                     }
                 }
             });
@@ -113,7 +142,7 @@ public class ProfileSetUpFragment extends Fragment {
     }
 
     public interface profileSetUpCI{
-
+        void openLaundrymanRoomSelectFragment();
         void openRoomSelectFragment();
     }
     @Override

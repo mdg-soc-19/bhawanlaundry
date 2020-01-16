@@ -1,25 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools = "http://schemas.android.com/tools"
-    tools:showIn="navigation_view"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/Ax_FUNCTIONS_GROUP"
+        android:title="Ax">
 
-    <group android:checkableBehavior="single">
+        <menu>
+            <group android:checkableBehavior="single">
 
-        <item android:id="@+id/REQUESTS_MENU_ITEM"
-            android:title="Requests"
-            android:icon="@drawable/ic_requests_24dp"/>
+                <item
+                    android:id="@+id/Ax_REQUESTS_MENU_ITEM"
+                    android:icon="@drawable/ic_requests_24dp"
+                    android:title="Queue" />
 
-        <item android:id="@+id/QUEUE_MENU_ITEM"
-             android:title="Queue"
-            android:icon="@drawable/ic_queue_24dp"/>
+                <item
+                    android:id="@+id/Ax_QUEUE_MENU_ITEM"
+                    android:icon="@drawable/ic_queue_24dp"
+                    android:title="Finished" />
 
-        <item android:id="@+id/FINISHED_MENU_ITEM"
-            android:title="Finished"
-            android:icon="@drawable/ic_finished_black_24dp"/>
+            </group>
+        </menu>
+    </item>
 
+    <item
+        android:id="@+id/B_FUNCTIONS_GROUP"
+        android:title="B">
+        <menu>
+            <group android:checkableBehavior="single">
 
-    </group>
+                <item
+                    android:id="@+id/B_REQUESTS_MENU_ITEM"
+                    android:icon="@drawable/ic_requests_24dp"
+                    android:title="Queue" />
+
+                <item
+                    android:id="@+id/B_QUEUE_MENU_ITEM"
+                    android:icon="@drawable/ic_queue_24dp"
+                    android:title="Finished" />
+
+            </group>
+        </menu>
+    </item>
 
 
 </menu>

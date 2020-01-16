@@ -67,9 +67,34 @@ public class RoomSelectFragment extends Fragment {
             return view;
         }
 
+
+
         if(user.getDisplayName() == null || user.getDisplayName().isEmpty()){
             ROOM_SELECT_INTERFACE.openProfileSetUp();
             return view;
+        } else {
+            DocumentReference dRef = ff.collection("students").document(user.getDisplayName());
+            progressBar.setVisibility(View.VISIBLE);
+            dRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    progressBar.setVisibility(View.GONE);
+                    StudentUser studentUser = documentSnapshot.toObject(StudentUser.class);
+
+                    String room = studentUser.getRoom();
+
+                    if(room.trim().equals("laundryman")){
+                        ROOM_SELECT_INTERFACE.openLaundrymanRoomSelectFragment();
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    progressBar.setVisibility(View.GONE);
+                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
 
         //GET NAME AND ROOM NUMBER OF STUDENT
@@ -215,6 +240,7 @@ public class RoomSelectFragment extends Fragment {
 
                 FirebaseAuth.getInstance().signOut();
                 if(FirebaseAuth.getInstance().getCurrentUser()==null){
+                    MainActivity.lockDrawer();
                     ROOM_SELECT_INTERFACE.openLoginScreen();
                 }
             }
@@ -229,6 +255,7 @@ public class RoomSelectFragment extends Fragment {
         void openLaundryRoom(boolean isB, String n, String r, int numBuckets);
         void openLoginScreen();
         void openProfileSetUp();
+        void openLaundrymanRoomSelectFragment();
 
     }
 
